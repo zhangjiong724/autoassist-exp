@@ -1,0 +1,16 @@
+#!/bin/bash
+
+epoch=100
+batch=16
+dataset=mnist
+lr=0.0005
+moment=0.9
+arch=resnet18
+
+CUDA_VISIBLE_DEVICES=0 python train_others.py --epochs ${epoch} \
+                --arch ${arch} \
+                --dataset ${dataset} \
+                --batch-size ${batch} \
+                --lr ${lr} \
+                --momentum ${moment} \
+                --log-interval 10 

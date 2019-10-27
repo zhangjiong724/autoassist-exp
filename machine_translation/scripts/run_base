@@ -1,0 +1,21 @@
+#!/bin/bash
+export LANG=en_US.UTF-8
+export LC_ALL=en_US.UTF-8
+
+checkpoint_dir=checkpoints/tmp_base
+
+mkdir -p ${checkpoint_dir}
+
+ python train.py data-bin/iwslt14.tokenized.de-en \
+								--arch transformer_iwslt_de_en\
+                                --optimizer adam --lr 0.0001  \
+                                --label-smoothing 0.1 --dropout 0.1 --max-tokens 3000 \
+                                --min-lr '1e-09' --lr-scheduler inverse_sqrt --weight-decay 0.0001 \
+                                --criterion label_smoothed_cross_entropy --max-update 300000 --max-epoch 100\
+                                --warmup-updates 4000 --warmup-init-lr '1e-07' \
+                                --adam-betas '(0.9, 0.98)' \
+                                --distributed-world-size 4 \
+                                --log-format simple --log-interval 10 \
+								--save-dir ${checkpoint_dir} --save-interval 1 
+
+

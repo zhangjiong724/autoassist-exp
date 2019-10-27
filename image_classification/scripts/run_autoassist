@@ -1,0 +1,17 @@
+#!/bin/bash
+
+epoch=100
+batch=16
+lr=0.0005
+moment=0.9
+arch=resnet18
+dataset=mnist
+
+CUDA_VISIBLE_DEVICES=0 python train_autoassist.py --epochs ${epoch} \
+                --arch ${arch} \
+                --dataset ${dataset} \
+                --batch-size ${batch} \
+                --lr ${lr} \
+                --momentum ${moment} \
+                --assistant \
+                --log-interval 10 
