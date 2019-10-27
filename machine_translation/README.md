@@ -1,4 +1,3 @@
----
 # AutoAssist Pytorch NMT Implementation
 Code for machine translation accompanying the NeurIPS 2019 paper [AutoAssist: A Framework to Accelerate Training of Deep Neural Networks](https://arxiv.org/pdf/1905.03381.pdf).
 This folder contains code for machine translation experiments. The code is modified from the Facebook [fairseq](https://github.com/pytorch/fairseq) repository.
@@ -20,7 +19,6 @@ fairseq-preprocess --source-lang de --target-lang en \
 --trainpref $TEXT/train --validpref $TEXT/valid --testpref $TEXT/test \
 --destdir data-bin/iwslt14.tokenized.de-en
 ```
----
 
 ## Quick Start
 For a quick start, please execute ```scripts/run_*```:
@@ -31,7 +29,6 @@ For a quick start, please execute ```scripts/run_*```:
 ```
 
 
----
 ## Training models
 
 As an example, to train transformer model on iwslt14 dataset with 4 GPUs:
@@ -48,7 +45,6 @@ python train.py data-bin/iwslt14.tokenized.de-en \
                                 --log-format simple --log-interval 10 
 ```
 
----
 
 ## Translation 
 To translate with saved checkpoint "ckpt.pt":
@@ -58,7 +54,6 @@ python generate.py data-bin/iwslt14.tokenized.de-en  \
   --path ckpt.pt \
   --beam 5 --batch-size 128 --remove-bpe 
 ```
----
 
 ## Evaluation 
 To evaluate trained model:
