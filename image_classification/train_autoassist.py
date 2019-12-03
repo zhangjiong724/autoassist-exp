@@ -271,7 +271,7 @@ def main():
         from screener import Screener_CIFAR10 as Screener
 
         num_classes = 10
-        args.lr_dacay = 0.5
+        args.lr_decay = 0.5
         train_data = CIFAR10(
             file_dir + "/data",
             train=True,
@@ -302,7 +302,7 @@ def main():
         import resnet_cifar10 as models
         from screener import Screener_CIFAR10 as Screener
 
-        args.lr_dacay = 0.5
+        args.lr_decay = 0.5
         num_classes = 10
         train_data = CIFAR10(
             file_dir + "/data",
@@ -336,7 +336,7 @@ def main():
         from screener import Screener_CIFAR10 as Screener
 
         num_classes = 1000
-        args.lr_dacay = 0.5
+        args.lr_decay = 0.5
         train_data = ImageNet32X32(
             file_dir + "/data",
             train=True,
@@ -368,7 +368,7 @@ def main():
         from screener import Screener_CIFAR10 as Screener
 
         num_classes = 1000
-        args.lr_dacay = 0.5
+        args.lr_decay = 0.5
         normalize = transforms.Normalize(
             mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225]
         )
